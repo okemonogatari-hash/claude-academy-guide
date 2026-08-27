@@ -15,7 +15,8 @@
       --forest: #2f5a3c;
       --forest-dark: #1e3b28;
       --leaf: #6d863a;
-      --orange: #d96f22;
+      --orange: #d96f22;        /* 罫線・面用。文字には使わない */
+      --orange-ink: #a04a0d;    /* 文字用。地色 #fffdf7 / #f7f2e3 で 4.5 以上 */
       --blue: #1e5b9b;
       --cream: #f4e9c7;
       --paper: #fffdf7;
@@ -94,7 +95,7 @@
     }
     .brand-copy { display: grid; line-height: 1.2; }
     .brand-copy strong { font-family: "Noto Serif JP", serif; font-size: 15px; }
-    .brand-copy small { margin-top: 4px; color: var(--muted); font-size: 10px; letter-spacing: .08em; }
+    .brand-copy small { margin-top: 4px; color: var(--muted); font-size: 12.5px; letter-spacing: .08em; }
     .header-nav { display: flex; align-items: center; gap: 22px; }
     .header-nav a {
       color: var(--forest-dark);
@@ -135,7 +136,7 @@
     .eyebrow {
       margin: 0 0 17px;
       color: var(--forest);
-      font-size: 12px;
+      font-size: 12.5px;
       font-weight: 700;
       letter-spacing: .15em;
       text-transform: uppercase;
@@ -148,7 +149,7 @@
       line-height: 1.28;
       letter-spacing: -.03em;
     }
-    .hero-title .accent { color: var(--orange); }
+    .hero-title .accent { color: var(--orange-ink); }
     .hero-lead {
       max-width: 570px;
       margin: 25px 0 0;
@@ -192,7 +193,7 @@
       gap: 10px 18px;
       align-items: end;
     }
-    .progress-label { color: var(--muted); font-size: 12px; }
+    .progress-label { color: #4d584f; font-size: 12.5px; }
     .progress-number { font-family: "Noto Serif JP", serif; font-size: 28px; font-weight: 700; color: var(--forest); line-height: 1; }
     .progress-bar { grid-column: 1 / -1; height: 4px; overflow: hidden; background: rgba(47,90,60,.12); }
     .progress-bar span { display: block; width: 0; height: 100%; background: var(--orange); transition: width .35s ease; }
@@ -226,7 +227,7 @@
       border-left: 3px solid var(--orange);
       color: var(--ink);
       background: var(--paper);
-      font-size: 12px;
+      font-size: 12.5px;
       line-height: 1.7;
       transform: rotate(-2deg);
     }
@@ -242,14 +243,14 @@
     }
     .howto-item { min-height: 78px; padding: 5px 28px; border-left: 1px solid var(--line); display: flex; align-items: flex-start; gap: 14px; }
     .howto-item:last-child { border-right: 1px solid var(--line); }
-    .howto-num { color: var(--orange); font-family: "Noto Serif JP", serif; font-size: 22px; line-height: 1.4; }
+    .howto-num { color: var(--orange-ink); font-family: "Noto Serif JP", serif; font-size: 22px; line-height: 1.4; }
     .howto-item strong { display: block; margin-bottom: 3px; font-size: 14px; }
-    .howto-item p { margin: 0; color: var(--muted); font-size: 12px; line-height: 1.75; }
+    .howto-item p { margin: 0; color: var(--muted); font-size: 12.5px; line-height: 1.75; }
 
     .archive { padding: 92px 0 110px; }
     .archive-inner { width: min(calc(100% - 40px), var(--max-width)); margin: 0 auto; }
     .section-head { display: flex; align-items: end; justify-content: space-between; gap: 40px; margin-bottom: 50px; }
-    .section-label { margin: 0 0 8px; color: var(--orange); font-size: 11px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; }
+    .section-label { margin: 0 0 8px; color: var(--orange-ink); font-size: 12.5px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; }
     .section-title { margin: 0; font-family: "Noto Serif JP", serif; font-size: clamp(30px, 4vw, 48px); line-height: 1.35; }
     .section-desc { max-width: 460px; margin: 14px 0 0; color: var(--muted); font-size: 14px; }
     .filters { display: inline-flex; border: 1px solid var(--forest); background: var(--paper); }
@@ -261,7 +262,7 @@
       color: var(--forest);
       background: transparent;
       cursor: pointer;
-      font-size: 12px;
+      font-size: 12.5px;
       font-weight: 700;
     }
     .filter-btn:last-child { border-right: 0; }
@@ -275,7 +276,7 @@
       align-items: baseline;
       gap: 16px;
     }
-    .level-head span { color: var(--orange); font-family: "Noto Serif JP", serif; font-size: 13px; font-weight: 700; }
+    .level-head span { color: var(--orange-ink); font-family: "Noto Serif JP", serif; font-size: 13px; font-weight: 700; }
     .level-head h3 { margin: 0; font-family: "Noto Serif JP", serif; font-size: 21px; }
     .lesson-list { display: grid; gap: 26px; }
     .lesson-card {
@@ -308,7 +309,7 @@
     .lesson-art-inner { position: relative; z-index: 1; text-align: center; }
     .lesson-art-inner { width: min(88%, 320px); }
     .lesson-art-inner i { display: block; margin-bottom: 12px; color: var(--orange); font-size: 32px; }
-    .lesson-art-inner small { display: block; margin-bottom: 10px; color: var(--forest); font-size: 11px; font-weight: 700; letter-spacing: .13em; }
+    .lesson-art-inner small { display: block; margin-bottom: 10px; color: var(--forest); font-size: 12.5px; font-weight: 700; letter-spacing: .13em; }
     .lesson-art-inner strong { display: block; font-family: "Noto Serif JP", serif; font-size: clamp(22px, 2.5vw, 31px); line-height: 1.55; }
     .read-badge {
       position: absolute;
@@ -319,20 +320,20 @@
       padding: 5px 10px;
       color: var(--white);
       background: var(--forest);
-      font-size: 11px;
+      font-size: 12.5px;
       font-weight: 700;
     }
     .lesson-card.is-read .read-badge { display: block; }
     .lesson-body { padding: 30px 34px 32px; display: flex; flex-direction: column; }
     .lesson-meta { display: flex; align-items: center; justify-content: space-between; gap: 15px; margin-bottom: 16px; }
-    .day-label { color: var(--orange); font-family: "Noto Serif JP", serif; font-size: 13px; font-weight: 700; letter-spacing: .08em; }
-    .lesson-date { color: var(--muted); font-size: 11px; }
+    .day-label { color: var(--orange-ink); font-family: "Noto Serif JP", serif; font-size: 13px; font-weight: 700; letter-spacing: .08em; }
+    .lesson-date { color: var(--muted); font-size: 12.5px; }
     .lesson-title { margin: 0; font-family: "Noto Serif JP", serif; font-size: clamp(21px, 2.5vw, 28px); line-height: 1.55; }
     .lesson-summary { margin: 14px 0 0; color: var(--muted); font-size: 13px; line-height: 1.85; }
     .lesson-point { margin: 18px 0 0; padding-left: 13px; border-left: 3px solid var(--leaf); font-size: 13px; font-weight: 600; }
     .lesson-actions { margin-top: auto; padding-top: 24px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
     .article-link { color: var(--forest-dark); font-size: 13px; font-weight: 700; text-underline-offset: 5px; }
-    .article-link i { margin-left: 7px; font-size: 11px; }
+    .article-link i { margin-left: 7px; font-size: 12.5px; }
     .read-btn {
       min-height: 40px;
       padding: 0 15px;
@@ -341,7 +342,7 @@
       color: var(--forest);
       background: transparent;
       cursor: pointer;
-      font-size: 12px;
+      font-size: 12.5px;
       font-weight: 700;
     }
     .read-btn:hover, .lesson-card.is-read .read-btn { color: var(--white); background: var(--forest); }
@@ -349,10 +350,10 @@
     .empty-state.is-visible { display: block; }
 
     .next-preview { margin-top: 70px; padding: 36px 0; border-top: 1px solid var(--forest); border-bottom: 1px solid var(--forest); display: grid; grid-template-columns: 180px 1fr auto; gap: 30px; align-items: center; }
-    .next-label { color: var(--orange); font-family: "Noto Serif JP", serif; font-size: 13px; font-weight: 700; letter-spacing: .12em; }
+    .next-label { color: var(--orange-ink); font-family: "Noto Serif JP", serif; font-size: 13px; font-weight: 700; letter-spacing: .12em; }
     .next-copy h3 { margin: 0; font-family: "Noto Serif JP", serif; font-size: 23px; }
     .next-copy p { margin: 7px 0 0; color: var(--muted); font-size: 13px; }
-    .next-status { padding: 6px 12px; border: 1px solid var(--line); color: var(--muted); font-size: 11px; font-weight: 700; letter-spacing: .08em; }
+    .next-status { padding: 6px 12px; border: 1px solid var(--line); color: var(--muted); font-size: 12.5px; font-weight: 700; letter-spacing: .08em; }
 
     .source-section { color: var(--white); background: var(--forest-dark); }
     .source-inner { width: min(calc(100% - 40px), var(--max-width)); margin: 0 auto; padding: 70px 0; display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 40px; }
@@ -361,7 +362,7 @@
     .source-link { display: inline-flex; align-items: center; gap: 9px; min-height: 48px; padding: 0 20px; border: 1px solid rgba(255,255,255,.7); border-radius: 2px; color: var(--white); font-size: 13px; font-weight: 700; text-decoration: none; }
     .source-link:hover { color: var(--forest-dark); background: var(--white); }
 
-    footer { padding: 27px 0; color: var(--muted); background: var(--paper); font-size: 11px; }
+    footer { padding: 27px 0; color: var(--muted); background: var(--paper); font-size: 12.5px; }
     .footer-inner { width: min(calc(100% - 40px), var(--max-width)); margin: 0 auto; display: flex; justify-content: space-between; gap: 30px; }
     .footer-inner a { text-underline-offset: 4px; }
 
@@ -443,7 +444,7 @@
           </div>
           <div class="progress-panel" aria-live="polite">
             <span class="progress-label">この端末で読んだ回</span>
-            <span class="progress-number"><strong id="read-count">0</strong> / <span id="total-count">2</span></span>
+            <span class="progress-number"><strong id="read-count">0</strong> / <span id="total-count">5</span></span>
             <span class="progress-bar" aria-hidden="true"><span id="progress-fill"></span></span>
           </div>
         </div>
@@ -490,12 +491,15 @@
           <ul>
             <li><a href="https://libecity.com/room_list?room_id=m74BCueTGd0wL6uxHCCZ&amp;comment_id=12cHh1Tz4WsXvoxmlafi">初回：Claude Academyってどんな学校？</a></li>
             <li><a href="https://libecity.com/room_list?room_id=m74BCueTGd0wL6uxHCCZ&amp;comment_id=d67TH8TVYlr9VXux7h0l">第2回：AIとの3つの関わり方</a></li>
+            <li><a href="https://libecity.com/room_list?room_id=m74BCueTGd0wL6uxHCCZ&amp;comment_id=z2xJP7abLNFt4xX6GozN">第3回：AIと組むための4つの力（4Dフレームワーク）</a></li>
+            <li><a href="https://libecity.com/room_list?room_id=m74BCueTGd0wL6uxHCCZ&amp;comment_id=m71yzbznvNB3LK9A8WQX">第4回：AIって、どうやって答えを作ってるの？</a></li>
+            <li><a href="https://libecity.com/room_list?room_id=m74BCueTGd0wL6uxHCCZ&amp;comment_id=25uUoqDiS4LkvkKrC1AX">第5回：AIは何が得意で、何が苦手なの？</a></li>
           </ul>
         </noscript>
 
         <aside class="next-preview" aria-label="次回予告">
           <span class="next-label">COMING NEXT</span>
-          <div class="next-copy"><h3>第3回：AIと付き合うための「4Dフレームワーク」</h3><p>AIに何を任せ、どう伝え、どう確かめる？ 4つの力を日常の例で見ていきます。</p></div>
+          <div class="next-copy"><h3>第6回：委任力の深掘り</h3><p>じゃあ実際に、何をAIに任せればいいの？ 4Dの最初の力をもう少し掘っていきます。</p></div>
           <span class="next-status">準備中</span>
         </aside>
       </div>
@@ -544,6 +548,39 @@
         url: "https://libecity.com/room_list?room_id=m74BCueTGd0wL6uxHCCZ&comment_id=d67TH8TVYlr9VXux7h0l",
         image: "assets/lesson-02.jpg",
         imageAlt: "カピバラとインコが自動化・拡張・自律の違いを学ぶイラスト"
+      },
+      {
+        id: "lesson-03",
+        day: "第3回",
+        date: "2026.08.24",
+        title: "AIと組むための4つの力（4Dフレームワーク）",
+        summary: "委任力・記述力・評価力・倫理的責任の4つを、前回の『最高の休日プラン』がうまくいかなかった話からほどきます。",
+        point: "4Dは毎回やる宿題じゃなく、うまくいかなかった時に戻ってくる地図。",
+        url: "https://libecity.com/room_list?room_id=m74BCueTGd0wL6uxHCCZ&comment_id=z2xJP7abLNFt4xX6GozN",
+        image: "",
+        imageAlt: ""
+      },
+      {
+        id: "lesson-04",
+        day: "第4回",
+        date: "2026.08.25",
+        title: "AIって、どうやって答えを作ってるの？",
+        summary: "AIは『次に何が来そう？』を予想し続けている、という仕組みを穴埋めクイズでほどき、AIと互いを知る実験へつなげます。",
+        point: "AIを使いこなす学校ではなく、AIと一緒に成長する学校。",
+        url: "https://libecity.com/room_list?room_id=m74BCueTGd0wL6uxHCCZ&comment_id=m71yzbznvNB3LK9A8WQX",
+        image: "",
+        imageAlt: ""
+      },
+      {
+        id: "lesson-05",
+        day: "第5回",
+        date: "2026.08.26",
+        title: "AIは何が得意で、何が苦手なの？",
+        summary: "AIは自然そうな答えを作るのが得意なぶん、自信満々に間違うこともある。覚えていられる範囲があることも含めてほどきます。",
+        point: "コンテキストとは、自分が知っていてAIが知らないことの差。",
+        url: "https://libecity.com/room_list?room_id=m74BCueTGd0wL6uxHCCZ&comment_id=25uUoqDiS4LkvkKrC1AX",
+        image: "",
+        imageAlt: ""
       }
     ];
 
@@ -574,7 +611,7 @@
       if (lesson.image) {
         return `<img src="${escapeHtml(lesson.image)}" alt="${escapeHtml(lesson.imageAlt)}" width="1280" height="720" loading="lazy">`;
       }
-      return `<div class="lesson-art" aria-hidden="true"><div class="lesson-art-inner"><i class="fa-solid fa-school"></i><small>LESSON 01 · WELCOME</small><strong>${escapeHtml(lesson.title)}</strong></div></div>`;
+      return `<div class="lesson-art" aria-hidden="true"><div class="lesson-art-inner"><i class="fa-solid fa-school"></i><small>${escapeHtml(lesson.day)}</small><strong>${escapeHtml(lesson.title)}</strong></div></div>`;
     }
 
     function render() {
