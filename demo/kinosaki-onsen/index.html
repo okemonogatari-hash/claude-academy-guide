@@ -1,0 +1,532 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>湯宿 月待 ｜ 城崎温泉 二泊三日 何もしない旅</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;600&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#f3efe6;
+    --surface:#fbf9f4;
+    --surface-2:#ece7db;
+    --line:#d8d0bd;
+    --ink:#262a2f;
+    --muted:#6b6a63;
+    --accent:#2f3d4c;
+    --accent-soft:#dde3e6;
+    --shadow:rgba(38,42,47,0.10);
+  }
+  *{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:"Noto Sans JP",-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN",sans-serif;
+    font-size:16px;
+    line-height:1.9;
+    -webkit-font-smoothing:antialiased;
+  }
+  small{font-size:12.5px;}
+  h1,h2,h3{
+    font-family:"Noto Serif JP","Hiragino Mincho ProN",serif;
+    color:var(--ink);
+    font-weight:600;
+    text-wrap:balance;
+    margin:0 0 .6em;
+  }
+  p{margin:0 0 1.1em;}
+  a{color:var(--accent);}
+  img{max-width:100%;}
+
+  .measure{
+    width:min(42em,100%);
+    max-width:100%;
+  }
+  .flex-row .measure{width:100%;}
+
+  .wrap{
+    max-width:1080px;
+    margin:0 auto;
+    padding:0 clamp(20px,5vw,56px);
+  }
+
+  /* ---------- 湯けむり装飾（画像なし・CSSのみ） ---------- */
+  .steamfield{
+    position:relative;
+    overflow:hidden;
+    isolation:isolate;
+  }
+  .steamfield::before,
+  .steamfield::after{
+    content:"";
+    position:absolute;
+    border-radius:50%;
+    filter:blur(40px);
+    background:radial-gradient(circle at 30% 30%, var(--accent-soft), transparent 70%);
+    opacity:.75;
+    z-index:-1;
+    animation:drift 22s ease-in-out infinite;
+  }
+  .steamfield::before{
+    width:420px;height:420px;
+    top:-140px; left:-80px;
+  }
+  .steamfield::after{
+    width:360px;height:360px;
+    bottom:-160px; right:-60px;
+    animation-delay:-9s;
+  }
+  @keyframes drift{
+    0%,100%{ transform:translateY(0) translateX(0); }
+    50%{ transform:translateY(-18px) translateX(14px); }
+  }
+  @media (prefers-reduced-motion:reduce){
+    .steamfield::before,.steamfield::after{animation:none;}
+  }
+
+  /* ---------- ヘッダー / ヒーロー ---------- */
+  header.hero{
+    padding:clamp(64px,12vw,120px) 0 clamp(48px,8vw,80px);
+    text-align:center;
+  }
+  .eyebrow{
+    display:inline-block;
+    letter-spacing:.32em;
+    color:var(--muted);
+    font-size:12.5px;
+    margin-bottom:1.6em;
+  }
+  h1.title{
+    font-size:clamp(28px,4.6vw,44px);
+    line-height:1.55;
+  }
+  h1.title .title-sub{
+    display:block;
+    font-size:clamp(20px,3.4vw,34px);
+    text-wrap:balance;
+  }
+  .hero-sub{
+    color:var(--muted);
+    font-size:clamp(14px,1.6vw,17px);
+    margin:0 auto;
+  }
+
+
+  /* ---------- 写真 ---------- */
+  .photo-band{margin:0;}
+  .photo-band img{display:block;width:100%;height:auto;}
+  .photo-fig{margin:1.6em 0 0.4em;}
+  .photo-fig img{display:block;width:100%;height:auto;border-radius:10px;}
+  .photo-fig figcaption{margin-top:.7em;color:var(--muted);font-size:12.5px;letter-spacing:.06em;}
+
+  /* ---------- デモ注記／指示文カード ---------- */
+  .notice{
+    border:1px solid var(--line);
+    background:var(--surface);
+    border-radius:14px;
+    padding:1.3em 1.5em;
+    margin:0 auto 28px;
+    color:var(--muted);
+  }
+  .prompt-card{
+    border-radius:18px;
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-left:4px solid var(--accent);
+    box-shadow:0 18px 40px -28px var(--shadow);
+    padding:clamp(24px,4vw,40px);
+    margin:0 auto 56px;
+  }
+  .prompt-card .label{
+    display:block;
+    font-size:12.5px;
+    letter-spacing:.18em;
+    color:var(--muted);
+    margin-bottom:.9em;
+  }
+  .prompt-card .quote{
+    font-family:"Noto Serif JP",serif;
+    font-size:clamp(17px,2.4vw,21px);
+    line-height:1.85;
+    color:var(--ink);
+  }
+
+  section{padding:clamp(40px,7vw,72px) 0;}
+  section + section{border-top:1px solid var(--line);}
+
+  .section-head{margin-bottom:1.6em;}
+  .section-head h2{font-size:clamp(22px,3vw,30px);}
+  .section-head p{color:var(--muted);}
+
+  /* ---------- 宿紹介 ---------- */
+  .stay-card{
+    display:flex;
+    flex-wrap:wrap;
+    gap:clamp(24px,4vw,48px);
+    align-items:flex-start;
+  }
+  .stay-card > div{flex:1 1 320px;}
+  .badge-line{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-top:1.4em;
+  }
+  .chip{
+    font-size:12.5px;
+    color:var(--accent);
+    background:var(--accent-soft);
+    border-radius:999px;
+    padding:.5em 1em;
+  }
+
+  /* ---------- 行程（DAY） ---------- */
+  .itinerary{counter-reset:day;}
+  .day{
+    position:relative;
+    padding-left:clamp(0px,0px,0px);
+    margin-bottom:clamp(40px,6vw,64px);
+  }
+  .day-badge{
+    display:inline-flex;
+    align-items:baseline;
+    gap:.6em;
+    margin-bottom:1em;
+  }
+  .day-badge::before{
+    counter-increment:day;
+    content:"DAY " counter(day,decimal-leading-zero);
+    font-family:"Noto Serif JP",serif;
+    font-size:13px;
+    letter-spacing:.22em;
+    color:var(--accent);
+    border:1px solid var(--accent);
+    border-radius:999px;
+    padding:.45em 1em;
+  }
+  .day-badge .day-name{
+    font-family:"Noto Serif JP",serif;
+    font-size:clamp(19px,2.6vw,24px);
+  }
+
+  .timeline{
+    border-left:1px dashed var(--line);
+    margin-left:6px;
+    padding-left:clamp(20px,3vw,32px);
+  }
+  .tl-item{
+    position:relative;
+    padding-bottom:1.5em;
+  }
+  .tl-item::before{
+    content:"";
+    position:absolute;
+    left:calc(-1 * clamp(20px,3vw,32px) - 4px);
+    top:.5em;
+    width:8px;height:8px;
+    border-radius:50%;
+    background:var(--accent);
+  }
+  .tl-time{
+    display:block;
+    font-size:12.5px;
+    color:var(--muted);
+    letter-spacing:.06em;
+    margin-bottom:.3em;
+  }
+  .tl-item.blank .tl-desc{color:var(--muted);}
+
+  /* ---------- 外湯カード ---------- */
+  .soto-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:24px;
+    counter-reset:soto;
+  }
+  .soto-card{
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:1.6em 1.7em;
+  }
+  .soto-card .soto-num::before{
+    counter-increment:soto;
+    content:"その" counter(soto);
+    display:inline-block;
+    font-size:12.5px;
+    color:var(--muted);
+    letter-spacing:.14em;
+    margin-bottom:.8em;
+  }
+  .soto-card h3{font-size:18px;margin-bottom:.5em;}
+  .soto-card p{color:var(--muted);margin-bottom:0;}
+
+  /* ---------- 理由リスト ---------- */
+  .why-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:20px;
+  }
+  .why-item{
+    padding:1.4em 0 0;
+    border-top:1px solid var(--line);
+  }
+  .why-item h3{font-size:16px;margin-bottom:.5em;}
+  .why-item p{color:var(--muted);margin-bottom:0;font-size:14.5px;}
+
+  /* ---------- 持ち物 ---------- */
+  .pack-list{
+    list-style:none;
+    margin:0;padding:0;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:14px 28px;
+  }
+  .pack-list li{
+    padding-left:1.4em;
+    position:relative;
+    color:var(--muted);
+  }
+  .pack-list li::before{
+    content:"·";
+    position:absolute;
+    left:0;
+    color:var(--accent);
+  }
+
+  footer{
+    padding:clamp(48px,8vw,80px) 0 clamp(56px,10vw,96px);
+    text-align:center;
+  }
+  footer .credit{
+    color:var(--muted);
+    margin-top:2em;
+  }
+
+  .hover-quiet{
+    transition:background-color .2s ease, border-color .2s ease;
+  }
+  .hover-quiet:hover{
+    background:var(--surface-2);
+    border-color:var(--accent);
+  }
+</style>
+
+<header class="hero steamfield">
+  <div class="wrap">
+    <span class="eyebrow">城崎温泉　二泊三日</span>
+    <h1 class="title">湯宿 月待<span class="title-sub">——何もしない、を持ち帰る旅</span></h1>
+    <p class="hero-sub measure" style="margin-top:1.2em;">
+      七つの外湯を全部まわらない。予定を詰めない。<br class="hide-narrow">
+      客室の露天にただ何度も浸かるだけの、二泊三日のしおりです。
+    </p>
+  </div>
+</header>
+
+<figure class="photo-band">
+  <img src="assets/street.jpg" alt="柳と川沿いの家並みに小さな橋がかかる、城崎らしい温泉街の通り" width="1600" height="900">
+</figure>
+
+<div class="wrap">
+  <div class="notice measure">
+    <small>
+      このしおりは、Claude Academy実践学習 第8回「記述力（Description）」のためにAIが作成した<strong style="color:var(--ink);">架空のデモ</strong>です。宿名・行程・登場する体験はすべて創作であり、実在の宿泊予約や同行者を示すものではありません。
+    </small>
+  </div>
+
+  <div class="prompt-card measure">
+    <span class="label">今回AIに渡したお願い（原文）</span>
+    <p class="quote">「城崎温泉2泊3日。客室露天風呂でとにかくゆっくりくつろぎたい。予定は詰めないで」</p>
+  </div>
+</div>
+
+<main>
+  <section class="stay-node">
+    <div class="wrap">
+      <div class="stay-card">
+        <div class="measure">
+          <div class="section-head">
+            <h2>宿について</h2>
+        <figure class="photo-fig">
+          <img src="assets/room.jpg" alt="窓の外の緑をながめる、静かな和の客室" loading="lazy">
+          <figcaption>部屋に着いたら、まず何もしない。</figcaption>
+        </figure>
+          </div>
+          <p>大谿川の一番上流、外湯からは少し離れた場所に、湯宿 月待はあります。部屋数は多くありません。用意されているのは豪華な設えより、「部屋にこもっていい」という許可だけです。</p>
+          <p>全室に客室露天風呂。チェックインからチェックアウトまで、極端な話、一度も外湯に行かなくても成立するようにつくられています。</p>
+          <div class="badge-line">
+            <span class="chip">全室客室露天</span>
+            <span class="chip">部屋出しの夕食</span>
+            <span class="chip">館内に時計を置かない</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="itinerary-node">
+    <div class="wrap">
+      <div class="section-head measure">
+        <h2>何もしない時間割</h2>
+        <p>行き先ではなく、空白の作り方を決めておく行程です。空欄はあえてそのまま残しています。</p>
+      </div>
+
+      <div class="itinerary">
+
+        <div class="day">
+          <div class="day-badge"><span class="day-name">到着日・とにかく湯に入る</span></div>
+          <div class="timeline measure">
+            <div class="tl-item">
+              <span class="tl-time">15:00</span>
+              <div class="tl-desc">チェックイン。荷物を置いたら、まず部屋の露天に湯を張る。</div>
+            </div>
+            <div class="tl-item blank">
+              <span class="tl-time">16:00〜19:00</span>
+              <div class="tl-desc">とくに、なにも。湯に浸かる、うとうとする、文庫本を10ページだけ読む、また湯に戻る。</div>
+            </div>
+            <div class="tl-item">
+              <span class="tl-time">19:00</span>
+              <div class="tl-desc">夕食は部屋出しで。器が下がるまで、次の予定は考えない。</div>
+            </div>
+            <div class="tl-item blank">
+              <span class="tl-time">21:00以降</span>
+              <div class="tl-desc">浴衣のまま部屋の露天にもう一度。眠くなった時間が、寝る時間。</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="day">
+          <div class="day-badge"><span class="day-name">外湯は、2つだけ選ぶ日</span></div>
+          <div class="timeline measure">
+            <div class="tl-item blank">
+              <span class="tl-time">午前</span>
+              <div class="tl-desc">起きた時間が朝。目覚ましは持ってこない。朝湯にだけ浸かって、二度寝しても構わない。</div>
+            </div>
+            <div class="tl-item">
+              <span class="tl-time">昼過ぎ</span>
+              <div class="tl-desc">浴衣に着替えて外へ。七つの外湯から、今回は2つだけ選ぶ（詳しくは次の章）。</div>
+            </div>
+            <div class="tl-item blank">
+              <span class="tl-time">夕方</span>
+              <div class="tl-desc">宿に戻って部屋の露天へ。予定はここで終わり、というのを決めておく。</div>
+            </div>
+            <div class="tl-item blank">
+              <span class="tl-time">夜</span>
+              <div class="tl-desc">川沿いを少しだけ散歩するか、しないか。その日の気分に任せる。</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="day">
+          <div class="day-badge"><span class="day-name">最後にもう一度、部屋の湯</span></div>
+          <div class="timeline measure">
+            <div class="tl-item blank">
+              <span class="tl-time">朝</span>
+              <div class="tl-desc">チェックアウトの時間から逆算して、入れるだけ部屋の露天に入る。</div>
+            </div>
+            <div class="tl-item">
+              <span class="tl-time">11:00</span>
+              <div class="tl-desc">チェックアウト。次の予定は、駅に着いてから考える。</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="soto-node">
+    <div class="wrap">
+      <div class="section-head measure">
+        <h2>七つのうち、2つだけ</h2>
+        <p>城崎温泉には外湯が七つありますが、今回は全制覇を目指しません。歩く距離と、湯上がりに休む時間を天秤にかけて、2つだけ選びます。</p>
+      </div>
+      <div class="soto-grid">
+        <div class="soto-card">
+          <span class="soto-num"></span>
+          <h3>御所の湯</h3>
+          <p>宮御殿を思わせる佇まいと、庭園を望む露天。外湯の中でも、腰を据えてゆっくりできる造り。</p>
+        </div>
+        <div class="soto-card">
+          <span class="soto-num"></span>
+          <h3>一の湯</h3>
+          <p>歌舞伎の芝居小屋を模した外観が目印。湯上がりに、外の柳並木をそのまま眺められる立地。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="why-node">
+    <div class="wrap">
+      <div class="section-head measure">
+        <h2>客室露天風呂を選ぶ理由</h2>
+        <figure class="photo-fig">
+          <img src="assets/rotenburo.jpg" alt="ウッドデッキに置かれた木の露天風呂" loading="lazy">
+          <figcaption>誰の目もない湯は、時間の流れがちがう。</figcaption>
+        </figure>
+      </div>
+      <div class="why-grid">
+        <div class="why-item">
+          <h3>移動しない</h3>
+          <p>浴衣を着る手間はあっても、下駄で外湯まで歩く距離がない。段差の少ない一日になる。</p>
+        </div>
+        <div class="why-item">
+          <h3>人に会わない</h3>
+          <p>脱衣所も洗い場も、待ち時間も譲り合いもない。湯の時間がまるごと自分のものになる。</p>
+        </div>
+        <div class="why-item">
+          <h3>待たない</h3>
+          <p>混雑する時間帯を気にしなくていい。入りたい時に入り、出たい時に出る。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="walk-node steamfield">
+    <div class="wrap">
+      <div class="measure">
+        <div class="section-head">
+          <h2>夜、浴衣で川沿いを少しだけ</h2>
+        <figure class="photo-fig">
+          <img src="assets/night-river.jpg" alt="夜の灯りが川面にうつる温泉街" loading="lazy">
+          <figcaption>灯りが川にうつる時間だけ、外に出る。</figcaption>
+        </figure>
+        </div>
+        <p>大谿川に沿って柳が並び、外灯が水面に映ります。下駄の音だけが響く時間帯を選んで、行き先を決めずに歩く。橋を一つ渡ったら引き返す、それくらいの距離で十分です。</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="pack-node">
+    <div class="wrap">
+      <div class="section-head measure">
+        <h2>持っていくと、ちょうどいいもの</h2>
+        <p>予定を詰めない旅なので、荷物も同じ考え方で選びます。</p>
+      </div>
+      <ul class="pack-list measure">
+        <li>文庫本1冊（読み切らなくていい）</li>
+        <li>羽織るもの1枚</li>
+        <li>肌に合う保湿剤</li>
+        <li>時計は置いていく</li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p class="measure" style="margin:0 auto;color:var(--muted);">
+      同じ「城崎温泉 二泊三日」でも、AIに渡す指示（Description）が変わるだけで、まったく違うしおりになります。<br class="hide-narrow">
+      これはそのうちの一例、「客室露天でゆっくりする」だけを指示した版です。
+    </p>
+    <p class="credit"><small>Claude Academy実践学習　第8回「記述力」実例 ／ 湯宿 月待・行程はすべて架空のデモです</small></p>
+  </div>
+  <p style="margin-top:.5em">写真: <a href="https://unsplash.com" style="color:inherit">Unsplash</a>（フリー素材）</p>
+</footer>
+
+<style>
+  @media (max-width:480px){
+    .hide-narrow{display:none;}
+  }
+</style>

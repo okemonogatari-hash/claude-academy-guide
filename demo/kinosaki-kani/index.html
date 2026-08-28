@@ -1,0 +1,799 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>かに楽園 大漁亭 旅のしおり</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Noto+Serif+JP:wght@700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#fffaf5;
+    --surface:#ffffff;
+    --surface-warm:#fff1e1;
+    --surface-blush:#ffe7de;
+    --ink:#241206;
+    --muted:#6b4832;
+    --accent:#a6191e;
+    --accent2:#8a4b12;
+    --line:rgba(166,25,30,.16);
+  }
+
+  *,*::before,*::after{box-sizing:border-box}
+
+  html{-webkit-text-size-adjust:100%}
+
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:"Noto Sans JP",sans-serif;
+    font-size:16px;
+    line-height:1.9;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  small{font-size:12.5px}
+
+  h1,h2,h3{
+    font-family:"Noto Serif JP",serif;
+    color:var(--ink);
+    line-height:1.5;
+    text-wrap:balance;
+    margin:0 0 .5em;
+  }
+
+  p{margin:0 0 1em}
+  p:last-child{margin-bottom:0}
+
+  a{color:var(--accent)}
+
+  .wrap{
+    max-width:1180px;
+    margin-inline:auto;
+    padding-inline:clamp(20px,5vw,48px);
+  }
+
+  .col{
+    max-width:42em;
+    width:100%;
+    margin-inline:auto;
+  }
+
+  .stack > * + *{margin-top:1em}
+
+  /* ---------- ヒーロー ---------- */
+
+  .hero{
+    position:relative;
+    overflow:hidden;
+    padding:clamp(48px,9vw,88px) 0 clamp(56px,8vw,80px);
+    background:
+      radial-gradient(60% 55% at 82% 8%, #ffd9c2 0%, transparent 62%),
+      radial-gradient(55% 50% at 6% 92%, #ffcfd2 0%, transparent 65%),
+      linear-gradient(180deg,#fff5ec 0%, var(--bg) 78%);
+  }
+
+  .hero-crab{
+    position:absolute;
+    top:-40px;
+    right:clamp(-30px,-2vw,10px);
+    width:min(46vw,260px);
+    aspect-ratio:1/1;
+    pointer-events:none;
+    opacity:.9;
+  }
+  .hero-crab .body{
+    position:absolute;
+    inset:22% 18%;
+    background:radial-gradient(circle at 35% 30%, #ff9a6a, var(--accent) 72%);
+    border-radius:50% 50% 46% 46%/58% 58% 42% 42%;
+    box-shadow:inset -10px -14px 26px rgba(0,0,0,.14);
+  }
+  .hero-crab .eye{
+    position:absolute;
+    top:26%;
+    width:9%;
+    aspect-ratio:1/1;
+    background:var(--ink);
+    border-radius:50%;
+  }
+  .hero-crab .eye.l{left:36%}
+  .hero-crab .eye.r{right:36%}
+  .hero-crab .leg{
+    position:absolute;
+    width:34%;
+    height:9%;
+    background:var(--accent);
+    border-radius:999px;
+    transform-origin:0 50%;
+  }
+  .hero-crab .leg1{top:36%;left:6%;transform:rotate(-18deg)}
+  .hero-crab .leg2{top:50%;left:2%;transform:rotate(4deg)}
+  .hero-crab .leg3{top:64%;left:6%;transform:rotate(24deg)}
+  .hero-crab .leg4{top:36%;right:6%;left:auto;transform:rotate(18deg) scaleX(-1)}
+  .hero-crab .leg5{top:50%;right:2%;left:auto;transform:rotate(-4deg) scaleX(-1)}
+  .hero-crab .leg6{top:64%;right:6%;left:auto;transform:rotate(-24deg) scaleX(-1)}
+  .hero-crab .claw{
+    position:absolute;
+    top:8%;
+    width:22%;
+    aspect-ratio:1/1;
+    background:var(--accent);
+    border-radius:60% 40% 55% 45%;
+  }
+  .hero-crab .claw.l{left:8%;transform:rotate(-25deg)}
+  .hero-crab .claw.r{right:8%;transform:rotate(25deg) scaleX(-1)}
+
+  .eyebrow{
+    display:inline-flex;
+    align-items:center;
+    gap:.5em;
+    font-weight:700;
+    font-size:13px;
+    letter-spacing:.06em;
+    color:var(--accent2);
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:999px;
+    padding:.5em 1.1em;
+  }
+
+  .hero h1{
+    margin-top:.7em;
+    font-size:clamp(1.85rem,5.4vw,3.6rem);
+    font-weight:900;
+    max-width:14em;
+  }
+  .hero h1 .red{color:var(--accent)}
+
+  .hero-sub{
+    margin-top:.9em;
+    max-width:34em;
+    font-size:clamp(1rem,2vw,1.15rem);
+    color:var(--muted);
+  }
+
+  .hero-badges{
+    margin-top:1.6em;
+    display:flex;
+    flex-wrap:wrap;
+    gap:.6em;
+  }
+  .badge{
+    display:inline-flex;
+    align-items:center;
+    gap:.45em;
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:999px;
+    padding:.55em 1.1em;
+    font-weight:700;
+    font-size:14px;
+    color:var(--ink);
+  }
+  .badge .num{color:var(--accent)}
+
+  /* ---------- AI開示ボックス ---------- */
+
+  .disclosure{
+    background:var(--surface-warm);
+    border:1px solid var(--line);
+    border-radius:20px;
+    padding:clamp(20px,4vw,32px);
+  }
+  .disclosure-tag{
+    display:inline-block;
+    font-weight:700;
+    font-size:13px;
+    letter-spacing:.04em;
+    color:#fff;
+    background:var(--accent);
+    border-radius:999px;
+    padding:.35em 1em;
+    margin-bottom:.9em;
+  }
+  .disclosure h2{
+    font-size:clamp(1.15rem,2.6vw,1.5rem);
+  }
+  .disclosure p{color:var(--muted)}
+  .prompt-box{
+    margin-top:1.2em;
+    background:var(--ink);
+    border-radius:14px;
+    padding:1.2em 1.4em;
+  }
+  .prompt-box .label{
+    display:block;
+    color:#ffc9a8;
+    font-weight:700;
+    font-size:12.5px;
+    letter-spacing:.05em;
+    margin-bottom:.6em;
+  }
+  .prompt-box p{
+    color:#fff7ef;
+    font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+    font-size:14px;
+    line-height:1.8;
+  }
+
+  /* ---------- セクション共通 ---------- */
+
+  section{padding:clamp(40px,7vw,72px) 0}
+
+  .section-head{margin-bottom:clamp(24px,4vw,40px)}
+  .section-head .eyebrow{margin-bottom:.8em}
+  .section-head p{color:var(--muted)}
+
+  /* ---------- 3日間ざっくりビュー ---------- */
+
+  .overview-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:16px;
+    counter-reset:ov;
+  }
+  .overview-card{
+    counter-increment:ov;
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:16px;
+    padding:1.4em 1.3em;
+    position:relative;
+  }
+  .overview-card::before{
+    content:"day " counter(ov);
+    display:block;
+    font-weight:900;
+    font-size:12.5px;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--accent2);
+    margin-bottom:.6em;
+  }
+  .overview-card h3{font-size:1.05rem;margin-bottom:.4em}
+  .overview-card small{color:var(--muted);display:block}
+
+  /* ---------- DAYセクション ---------- */
+
+  .day-section{counter-reset:none}
+  .itinerary{counter-reset:day}
+
+  .day-block{padding:clamp(36px,6vw,64px) 0}
+  .day-block + .day-block{border-top:1px solid var(--line)}
+  .day-block{counter-increment:day}
+
+  .day-head{
+    display:flex;
+    flex-wrap:wrap;
+    align-items:baseline;
+    gap:.6em 1em;
+    margin-bottom:1.4em;
+  }
+  .day-head .day-label{
+    font-family:"Noto Serif JP",serif;
+    font-weight:900;
+    color:var(--accent);
+    font-size:clamp(1.6rem,3.6vw,2.1rem);
+    line-height:1;
+  }
+  .day-head .day-label::before{
+    content:"DAY " counter(day);
+  }
+  .day-head .day-title{
+    font-family:"Noto Serif JP",serif;
+    font-weight:700;
+    font-size:clamp(1.05rem,2.2vw,1.3rem);
+    color:var(--ink);
+  }
+
+  .timeline{
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+  }
+  .tl-item{
+    display:grid;
+    grid-template-columns:minmax(84px,auto) 1fr;
+    gap:6px 18px;
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:16px;
+    padding:1.1em 1.3em;
+  }
+  .tl-time{
+    font-weight:900;
+    color:var(--accent2);
+    font-family:"Noto Serif JP",serif;
+    font-size:.95rem;
+    white-space:nowrap;
+  }
+  .tl-body h4{
+    margin:0 0 .35em;
+    font-size:1.02rem;
+    font-weight:700;
+    color:var(--ink);
+    text-wrap:balance;
+  }
+  .tl-body p{color:var(--muted);margin:0}
+  .tl-tags{
+    margin-top:.6em;
+    display:flex;
+    flex-wrap:wrap;
+    gap:.4em;
+  }
+  .tl-tags span{
+    font-size:12.5px;
+    font-weight:700;
+    color:var(--accent2);
+    background:var(--surface-warm);
+    border-radius:999px;
+    padding:.25em .8em;
+  }
+
+  .kani-course{
+    margin-top:14px;
+    background:linear-gradient(135deg,var(--surface-blush),var(--surface-warm));
+    border:1px solid var(--line);
+    border-radius:18px;
+    padding:1.4em 1.5em;
+  }
+  .kani-course .kc-head{
+    display:flex;
+    align-items:center;
+    gap:.6em;
+    margin-bottom:.9em;
+  }
+  .kani-course .kc-head strong{
+    font-family:"Noto Serif JP",serif;
+    font-size:1.1rem;
+    color:var(--accent);
+  }
+  .kc-list{
+    list-style:none;
+    margin:0;
+    padding:0;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+    gap:.7em 1em;
+    counter-reset:kc;
+  }
+  .kc-list li{
+    counter-increment:kc;
+    font-weight:700;
+    color:var(--ink);
+    font-size:14px;
+    display:flex;
+    align-items:baseline;
+    gap:.5em;
+  }
+  .kc-list li::before{
+    content:counter(kc);
+    flex:none;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    width:1.6em;
+    height:1.6em;
+    border-radius:50%;
+    background:var(--accent);
+    color:#fff;
+    font-family:"Noto Serif JP",serif;
+    font-size:12.5px;
+  }
+
+  /* ---------- 食べ歩きMAP ---------- */
+
+  .foodmap{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:16px;
+    counter-reset:fm;
+  }
+  .fm-item{
+    counter-increment:fm;
+    position:relative;
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:16px;
+    padding:1.5em 1.3em 1.3em;
+    transition:transform .2s ease, box-shadow .2s ease;
+  }
+  .fm-item:hover{
+    transform:translateY(-4px);
+    box-shadow:0 14px 26px rgba(166,25,30,.14);
+  }
+  .fm-item::before{
+    content:counter(fm,decimal-leading-zero);
+    position:absolute;
+    top:-.6em;
+    left:1.1em;
+    background:var(--accent2);
+    color:#fff;
+    font-family:"Noto Serif JP",serif;
+    font-weight:900;
+    font-size:12.5px;
+    border-radius:999px;
+    padding:.3em .8em;
+  }
+  .fm-item .emoji{font-size:1.8rem;display:block;margin-bottom:.5em}
+  .fm-item h4{margin:0 0 .3em;font-size:1rem;color:var(--ink)}
+  .fm-item p{color:var(--muted);margin:0}
+
+  /* ---------- 持ち物・注意 ---------- */
+
+  .tips-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:16px;
+  }
+  .tip-card{
+    background:var(--surface-warm);
+    border-radius:16px;
+    padding:1.3em 1.4em;
+  }
+  .tip-card h4{margin:0 0 .4em;font-size:1rem;color:var(--accent)}
+  .tip-card p{color:var(--muted);margin:0}
+
+  /* ---------- フッター ---------- */
+
+  footer{
+    padding:clamp(32px,6vw,56px) 0 clamp(48px,8vw,72px);
+    border-top:1px solid var(--line);
+  }
+  footer .foot-note{
+    color:var(--muted);
+  }
+  footer .foot-tag{
+    display:inline-block;
+    font-weight:700;
+    font-size:12.5px;
+    color:var(--accent2);
+    background:var(--surface-warm);
+    border-radius:999px;
+    padding:.4em 1em;
+    margin-bottom:1em;
+  }
+
+
+  /* ---------- 写真 ---------- */
+  .photo-band{margin:0;}
+  .photo-band img{display:block;width:100%;height:auto;}
+  .photo-fig{margin:1.8em auto 0;max-width:56em;}
+  .photo-fig img{display:block;width:100%;height:auto;border-radius:12px;}
+  .photo-fig figcaption{margin-top:.7em;color:var(--muted);font-size:12.5px;letter-spacing:.06em;}
+
+  @media (min-width:860px){
+    .tl-item{grid-template-columns:110px 1fr}
+  }
+</style>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="eyebrow">🦀 城崎温泉 2泊3日・グルメ旅のしおり</span>
+    <h1>カニもグルメも、<br>とにかく<span class="red">食べ尽くす</span>旅。</h1>
+    <p class="hero-sub">茹でて、焼いて、すいてまで――城崎のカニを一滴残さず。外湯めぐりの合間は但馬牛まん、海鮮丼、地酒、ジェラートで胃袋を温め続ける、テンション高めの2泊3日です。</p>
+    <div class="hero-badges">
+      <span class="badge">宿：<span class="num">かに楽園 大漁亭</span></span>
+      <span class="badge">♨️ 外湯7湯めぐり</span>
+      <span class="badge">🍶 但馬の地酒つき</span>
+    </div>
+  </div>
+</header>
+
+<figure class="photo-band">
+  <img src="assets/crab-hero.jpg" alt="皿いっぱいに盛られた茹でカニ" width="1600" height="900">
+</figure>
+
+<div class="wrap">
+  <section aria-label="このページについて">
+    <div class="disclosure col" style="max-width:56em">
+      <span class="disclosure-tag">AI連載の実例デモ</span>
+      <h2>この旅のしおりは、架空のデモです。</h2>
+      <p>リベシティ「Claude Academy実践学習」第8回（記述力・Description）のために作った、実在しない宿・架空の旅程です。同じ「城崎温泉2泊3日」というお題でも、AIへの指示（目的の伝え方）が変わるだけで、ホームページの中身も温度もまったく変わる――その実例として公開しています。</p>
+      <div class="prompt-box">
+        <small class="label">今回AIに渡したお願い（プロンプトそのもの）</small>
+        <p>「城崎温泉2泊3日。豪華カニとグルメを食べ尽くしたい。テンション高めで。」</p>
+      </div>
+    </div>
+  </section>
+
+  <section aria-label="3日間のざっくり予定">
+    <div class="section-head col" style="max-width:56em">
+      <span class="eyebrow">AT A GLANCE</span>
+      <h2>3日間、ざっくりこんな感じ。</h2>
+      <p>詳しい時間割は下にスクロール。まずは全体の温度感から。</p>
+    </div>
+    <div class="overview-grid">
+      <div class="overview-card">
+        <h3>到着からもうカニ</h3>
+        <small>但馬牛まん片手に外湯めぐり → 夜は茹で・焼きのカニ懐石</small>
+      </div>
+      <div class="overview-card">
+        <h3>まるっとカニ三昧</h3>
+        <small>朝市 → 海鮮丼 → 地酒試飲 → 夜は特大カニすきフルコース</small>
+      </div>
+      <div class="overview-card">
+        <h3>最後の一杯まで</h3>
+        <small>カニ雑炊の朝ごはん → 名残の外湯 → お土産に地酒とカニせんべい</small>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div class="itinerary">
+
+  <section class="day-block" aria-label="1日目">
+    <div class="wrap">
+      <div class="day-head">
+        <span class="day-label"></span>
+        <span class="day-title">到着そうそう、もう食べる。</span>
+      </div>
+      <div class="timeline">
+        <div class="tl-item">
+          <span class="tl-time">13:00</span>
+          <div class="tl-body">
+            <h4>城崎温泉駅に到着、まずは腹ごしらえ</h4>
+            <p>駅前で湯上がりビールならぬ「到着まん」。ジューシーな但馬牛まんを頬張りながら旅の始まりに乾杯。</p>
+            <div class="tl-tags"><span>但馬牛まん</span><span>食べ歩き</span></div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <span class="tl-time">14:00</span>
+          <div class="tl-body">
+            <h4>温泉街をぶらぶら、外湯スタンプラリー開始</h4>
+            <p>柳並木と大谿川を眺めながら下駄をカランコロン。1湯目・2湯目とテンポよく巡って、汗と一緒に旅の疲れも流す。</p>
+            <div class="tl-tags"><span>外湯めぐり</span><span>浴衣散策</span></div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <span class="tl-time">15:30</span>
+          <div class="tl-body">
+            <h4>湯上がりに温泉たまごとジェラート</h4>
+            <p>外湯の源泉で作る温泉たまごを1個。とろとろの半熟に塩をひとふり。仕上げは但馬牛乳のジェラートで一息。</p>
+            <div class="tl-tags"><span>温泉たまご</span><span>ジェラート</span></div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <span class="tl-time">16:30</span>
+          <div class="tl-body">
+            <h4>宿「かに楽園 大漁亭」にチェックイン</h4>
+            <p>川沿いの部屋で一服。仲居さんが運んでくる案内板には、もう今夜のカニ会席のメニューが。期待値が最高潮に。</p>
+            <div class="tl-tags"><span>チェックイン</span></div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <span class="tl-time">18:30</span>
+          <div class="tl-body">
+            <h4>初日の夜は「カニ開幕会席」</h4>
+            <p>茹でガニと焼きガニ、まずは王道の2本柱から。カニ味噌は甲羅酒でしみじみ味わう、幸せな導入編。</p>
+            <div class="kani-course">
+              <div class="kc-head"><strong>🦀 開幕・カニ会席メニュー</strong></div>
+              <ul class="kc-list">
+                <li>茹でズワイガニ 丸ごと1杯</li>
+                <li>炭火焼きガニ</li>
+                <li>カニ刺し・カニ甲羅酒</li>
+                <li>但馬牛の陶板焼き</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <span class="tl-time">21:00</span>
+          <div class="tl-body">
+            <h4>腹ごなしに、もう一湯</h4>
+            <p>満腹のまま3湯目へ。夜の温泉街は提灯の灯りでいっそう情緒たっぷり。部屋に戻ったら爆睡コース。</p>
+            <div class="tl-tags"><span>外湯めぐり</span><span>夜さんぽ</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="day-block" aria-label="2日目">
+    <div class="wrap">
+      <div class="day-head">
+        <span class="day-label"></span>
+        <span class="day-title">丸一日、カニとグルメに全振り。</span>
+      </div>
+      <figure class="photo-fig">
+        <img src="assets/crab-legs.jpg" alt="氷の上に積まれたカニ脚の山" loading="lazy">
+        <figcaption>今夜の主役。この山が、鍋に沈む。</figcaption>
+      </figure>
+      <div class="timeline">
+        <div class="tl-item">
+          <span class="tl-time">7:30</span>
+          <div class="tl-body">
+            <h4>宿の朝ごはんは、まさかのカニ雑炊</h4>
+            <p>出汁にカニの旨みがしっかり。朝から満たされて、今日一日への戦闘力が上がる。</p>
+            <div class="tl-tags"><span>カニ雑炊</span></div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <span class="tl-time">9:00</span>
+          <div class="tl-body">
+            <h4>但馬の朝市をひやかす</h4>
+            <p>地元のおばちゃんたちが並べる干物や野菜、日本酒の量り売りをのぞきながら試食三昧。お土産の当たりをここで見つける。</p>
+            <div class="tl-tags"><span>朝市</span><span>試食</span></div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <span class="tl-time">11:30</span>
+          <div class="tl-body">
+            <h4>ランチは海鮮丼、迷わず特盛</h4>
+            <p>日本海の朝どれネタがぎっしり。カニ、ぶり、白イカ……欲張った分だけ幸せになれる丼。</p>
+            <div class="tl-tags"><span>海鮮丼</span></div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <span class="tl-time">13:30</span>
+          <div class="tl-body">
+            <h4>地酒蔵をのぞいて、試飲めぐり</h4>
+            <p>但馬の水と米で仕込んだ地酒を利き酒。今夜のカニすきに合わせる1本をここで選定する、実は大事な工程。</p>
+            <div class="tl-tags"><span>地酒</span><span>試飲</span></div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <span class="tl-time">15:00</span>
+          <div class="tl-body">
+            <h4>温泉街を食べ歩き、第2ラウンド</h4>
+            <p>練り物の天ぷらを揚げたてで、続けて濃厚ソフトクリーム。歩いてカロリーを言い訳にする、いつもの必勝パターン。</p>
+            <div class="tl-tags"><span>食べ歩き</span><span>ソフトクリーム</span></div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <span class="tl-time">18:30</span>
+          <div class="tl-body">
+            <h4>本気の「特大カニすきフルコース」</h4>
+            <p>今夜が今回の旅のメインイベント。カニすき鍋からの雑炊シメまで、選んだ地酒とともにとことん味わい尽くす。</p>
+            <div class="kani-course">
+              <div class="kc-head"><strong>🦀 本気のカニすきフルコース</strong></div>
+              <ul class="kc-list">
+                <li>特大カニすき鍋</li>
+                <li>カニ天ぷら盛り合わせ</li>
+                <li>カニ味噌甲羅焼き</li>
+                <li>シメのカニ雑炊</li>
+                <li>但馬の地酒 飲み比べ</li>
+                <li>デザート・柿のシャーベット</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <span class="tl-time">21:30</span>
+          <div class="tl-body">
+            <h4>浴衣で夜の提灯さんぽ、最後の外湯</h4>
+            <p>満腹すぎる体を4湯目でリセット。川沿いの灯りを眺めながら、今日一日の食べっぷりを振り返る贅沢な時間。</p>
+            <div class="tl-tags"><span>外湯めぐり</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="day-block" aria-label="3日目">
+    <div class="wrap">
+      <div class="day-head">
+        <span class="day-label"></span>
+        <span class="day-title">最後の一口まで、名残惜しく。</span>
+      </div>
+      <div class="timeline">
+        <div class="tl-item">
+          <span class="tl-time">8:00</span>
+          <div class="tl-body">
+            <h4>朝ごはんは、カニ茶漬けで有終の美</h4>
+            <p>出汁をかけた瞬間にふわっと香るカニ。ここまで食べてきて、それでもまだ「もう一杯」と言ってしまう恐ろしさ。</p>
+            <div class="tl-tags"><span>カニ茶漬け</span></div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <span class="tl-time">9:30</span>
+          <div class="tl-body">
+            <h4>最後の外湯、7湯制覇に挑戦</h4>
+            <p>ここまでで巡った外湯は6つ。チェックアウト前に最後の1湯へ駆け込んで、有言実行のコンプリート。</p>
+            <div class="tl-tags"><span>外湯めぐり</span><span>7湯制覇</span></div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <span class="tl-time">11:00</span>
+          <div class="tl-body">
+            <h4>お土産タイム、カニせんべいと地酒を大量に</h4>
+            <p>職場や家族への分は少なめ、自分用は多め。カニの甘みが濃縮されたせんべいと、昨日選んだ地酒を追加購入。</p>
+            <div class="tl-tags"><span>お土産</span><span>カニせんべい</span></div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <span class="tl-time">12:00</span>
+          <div class="tl-body">
+            <h4>駅前で名残の一杯、海鮮丼ミニと生ビール</h4>
+            <p>「もう食べられない」と言いながら注文してしまう、旅の最後にありがちな現象。満腹のまま帰路につく。</p>
+            <div class="tl-tags"><span>海鮮丼</span><span>名残惜しむ</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<div class="wrap">
+  <section aria-label="食べ歩きマップ">
+    <div class="section-head col" style="max-width:56em">
+      <span class="eyebrow">たべあるきMAP</span>
+      <h2>外湯めぐりの合間に、これも全部。</h2>
+      <figure class="photo-fig">
+        <img src="assets/crab-market.jpg" alt="市場の屋台にずらりと並ぶ新鮮なカニと貝" loading="lazy">
+        <figcaption>朝市はもはや前菜。歩くだけで腹が減る。</figcaption>
+      </figure>
+      <p>カニ会席だけでは終わらない。温泉街を歩くだけで出会える、城崎・但馬の名物たち。</p>
+    </div>
+    <div class="foodmap">
+      <div class="fm-item">
+        <span class="emoji">🍚</span>
+        <h4>海鮮丼</h4>
+        <p>日本海の朝どれをぎゅっと乗せた贅沢丼。カニ入りの特盛が定番の勝負メニュー。</p>
+      </div>
+      <div class="fm-item">
+        <span class="emoji">🥟</span>
+        <h4>但馬牛まん</h4>
+        <p>肉汁があふれる名物まん。到着した瞬間まず1個、が合言葉。</p>
+      </div>
+      <div class="fm-item">
+        <span class="emoji">🥚</span>
+        <h4>温泉たまご</h4>
+        <p>源泉でじっくり茹でた半熟たまご。外湯めぐりの合間にちょうどいい一口。</p>
+      </div>
+      <div class="fm-item">
+        <span class="emoji">🍦</span>
+        <h4>ご当地ジェラート</h4>
+        <p>但馬牛乳や地元フルーツのジェラート。食べ歩きの合間の甘い休憩に。</p>
+      </div>
+      <div class="fm-item">
+        <span class="emoji">🍶</span>
+        <h4>但馬の地酒</h4>
+        <p>蔵元の飲み比べセットで好みの1本を発掘。夜のカニすきの相棒に。</p>
+      </div>
+      <div class="fm-item">
+        <span class="emoji">🧺</span>
+        <h4>朝市</h4>
+        <p>干物・野菜・お土産が並ぶ、地元の空気を感じられる時間。試食もたっぷり。</p>
+      </div>
+    </div>
+  </section>
+
+  <section aria-label="持ち物と楽しみ方のコツ">
+    <div class="section-head col" style="max-width:56em">
+      <span class="eyebrow">TIPS</span>
+      <h2>食べ尽くすための、ちょっとしたコツ。</h2>
+      <figure class="photo-fig">
+        <img src="assets/crab-neon.jpg" alt="夜の店先に輝く巨大なカニの看板" loading="lazy">
+        <figcaption>街までカニ推し。この温度でいく。</figcaption>
+      </figure>
+    </div>
+    <div class="tips-grid">
+      <div class="tip-card">
+        <h4>浴衣＋下駄で温泉街を歩く</h4>
+        <p>宿の浴衣のまま外湯も食べ歩きもOK。雰囲気が一気に上がる。</p>
+      </div>
+      <div class="tip-card">
+        <h4>外湯めぐりの合間に小腹を満たす</h4>
+        <p>1食を大きく食べるより、食べ歩きで小分けにすると最終的にたくさん食べられる。</p>
+      </div>
+      <div class="tip-card">
+        <h4>お酒はカニすきの日にペース配分</h4>
+        <p>初日は控えめ、地酒を試飲した2日目に本気を出すと満足度が高い。</p>
+      </div>
+      <div class="tip-card">
+        <h4>お土産は最終日にまとめ買い</h4>
+        <p>荷物を増やさず身軽に食べ歩くなら、購入は3日目の朝がベスト。</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<footer>
+  <div class="wrap col" style="max-width:56em">
+    <span class="foot-tag">AI連載の実例デモ</span>
+    <p class="foot-note">このページは、リベシティ「Claude Academy実践学習」第8回（記述力・Description）のために作成した架空のデモです。宿名・旅程はすべて創作で、実在の人物・実際の旅行予定とは関係ありません。「同じお題でも、AIへの指示が変わるだけでホームページは別物になる」――その比較実例としてご覧ください。</p>
+  </div>
+  <p style="margin-top:.5em">写真: <a href="https://unsplash.com" style="color:inherit">Unsplash</a>（フリー素材）</p>
+</footer>
