@@ -97,6 +97,7 @@
     .brand-copy strong { font-family: "Noto Serif JP", serif; font-size: 15px; }
     .brand-copy small { margin-top: 4px; color: var(--muted); font-size: 12.5px; letter-spacing: .08em; }
     .header-nav { display: flex; align-items: center; gap: 22px; }
+    .header-nav a { white-space: nowrap; }
     .header-nav a {
       color: var(--forest-dark);
       font-size: 13px;
@@ -355,6 +356,20 @@
     .next-copy p { margin: 7px 0 0; color: var(--muted); font-size: 13px; }
     .next-status { padding: 6px 12px; border: 1px solid var(--line); color: var(--muted); font-size: 12.5px; font-weight: 700; letter-spacing: .08em; }
 
+    .roadmap { padding: 92px 0 100px; border-top: 1px solid var(--line); background: var(--paper); }
+    .roadmap-inner { width: min(calc(100% - 40px), var(--max-width)); margin: 0 auto; }
+    .roadmap-list { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--forest); counter-reset: rm; }
+    .roadmap-item { display: grid; grid-template-columns: 96px 1fr auto; gap: 10px 22px; align-items: center; padding: 16px 0; border-bottom: 1px solid var(--line); }
+    .rm-day { color: var(--orange-ink); font-family: "Noto Serif JP", serif; font-size: 13px; font-weight: 700; letter-spacing: .06em; }
+    .rm-copy strong { display: block; font-size: 15px; line-height: 1.7; }
+    .roadmap-item.is-todo .rm-copy strong { font-weight: 600; }
+    .rm-copy small { display: block; margin-top: 3px; color: var(--muted); font-size: 12.5px; line-height: 1.7; }
+    .rm-status { justify-self: end; padding: 6px 12px; border: 1px solid var(--line); color: var(--muted); font-size: 12.5px; font-weight: 700; letter-spacing: .08em; white-space: nowrap; }
+    .roadmap-item.is-done .rm-status { border-color: var(--forest); color: var(--forest); }
+    .roadmap-item.is-next { border-left: 3px solid var(--orange); padding-left: 18px; }
+    .roadmap-item.is-next .rm-status { border-color: var(--orange); color: var(--orange-ink); }
+    .roadmap-note { margin: 26px 0 0; color: var(--muted); font-size: 12.5px; line-height: 1.85; }
+
     .source-section { color: var(--white); background: var(--forest-dark); }
     .source-inner { width: min(calc(100% - 40px), var(--max-width)); margin: 0 auto; padding: 70px 0; display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 40px; }
     .source-inner h2 { margin: 0; font-family: "Noto Serif JP", serif; font-size: 28px; }
@@ -378,6 +393,8 @@
       .lesson-card { grid-template-columns: 1fr; }
       .lesson-media, .lesson-art { min-height: 0; aspect-ratio: 16/9; }
       .next-preview { grid-template-columns: 1fr; gap: 12px; }
+      .roadmap-item { grid-template-columns: 72px 1fr; }
+      .rm-status { grid-column: 2; justify-self: start; }
       .next-status { justify-self: start; }
     }
 
@@ -386,7 +403,7 @@
       .header-inner { width: min(calc(100% - 28px), var(--max-width)); }
       .brand-copy small, .header-nav a:first-child { display: none; }
       .header-nav { gap: 14px; }
-      .hero-inner, .archive-inner, .howto-inner, .source-inner, .footer-inner { width: min(calc(100% - 30px), var(--max-width)); }
+      .hero-inner, .archive-inner, .howto-inner, .roadmap-inner, .source-inner, .footer-inner { width: min(calc(100% - 30px), var(--max-width)); }
       .hero-inner { padding-top: 52px; }
       .hero-title { font-size: clamp(36px, 11vw, 49px); }
       .hero-lead { font-size: 14px; }
@@ -395,6 +412,7 @@
       .text-link { text-align: center; }
       .hero-note { position: static; width: 100%; margin-top: 18px; transform: none; }
       .archive { padding: 70px 0 82px; }
+      .roadmap { padding: 66px 0 76px; }
       .filters { width: 100%; }
       .filter-btn { flex: 1; min-width: 0; }
       .lesson-body { padding: 24px 21px 26px; }
@@ -426,6 +444,7 @@
       </a>
       <nav class="header-nav" aria-label="ページ内メニュー">
         <a href="#articles">記事一覧</a>
+        <a href="#roadmap">スケジュール</a>
         <a href="https://academy.claude.com/" target="_blank" rel="noopener">公式サイト <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
       </nav>
     </div>
@@ -501,9 +520,89 @@
 
         <aside class="next-preview" aria-label="次回予告">
           <span class="next-label">COMING NEXT</span>
-          <div class="next-copy"><h3>第8回：説明力（Description）</h3><p>お願いしたのに、なんか思ってたのと違う。そのズレを減らす伝え方を考えます。</p></div>
+          <div class="next-copy"><h3>第8回：記述力（Description）</h3><p>お願いしたのに、なんか思ってたのと違う。そのズレを減らす伝え方を考えます。（公式カリキュラムの訳語は「記述力」。連載第7回の予告では「説明力」とご案内していた回です）</p></div>
           <span class="next-status">準備中</span>
         </aside>
+      </div>
+    </section>
+
+    <section class="roadmap" id="roadmap" aria-labelledby="roadmap-title">
+      <div class="roadmap-inner">
+        <div class="section-head">
+          <div>
+            <p class="section-label">Roadmap</p>
+            <h2 class="section-title" id="roadmap-title">連載スケジュール<br>（全13回の予定）</h2>
+            <p class="section-desc">Claude Academy公式コース「AI活用力：フレームワーク&amp;基礎」（全14レッスン＋クイズ）の順番どおりに、1回で1レッスンずつ進んでいます。</p>
+          </div>
+        </div>
+        <ol class="roadmap-list">
+          <li class="roadmap-item is-done">
+            <span class="rm-day">初回</span>
+            <div class="rm-copy"><strong>Claude Academyって、どんな学校？</strong><small>公式レッスン：AI活用力入門</small></div>
+            <span class="rm-status">8/22 公開</span>
+          </li>
+          <li class="roadmap-item is-done">
+            <span class="rm-day">第2回</span>
+            <div class="rm-copy"><strong>AIとの3つの関わり方</strong><small>公式レッスン：なぜAI活用力が必要なのか？</small></div>
+            <span class="rm-status">8/23 公開</span>
+          </li>
+          <li class="roadmap-item is-done">
+            <span class="rm-day">第3回</span>
+            <div class="rm-copy"><strong>AIと組むための4つの力（4Dフレームワーク）</strong><small>公式レッスン：4D フレームワーク</small></div>
+            <span class="rm-status">8/24 公開</span>
+          </li>
+          <li class="roadmap-item is-done">
+            <span class="rm-day">第4回</span>
+            <div class="rm-copy"><strong>AIって、どうやって答えを作ってるの？</strong><small>公式レッスン：生成 AI の基礎</small></div>
+            <span class="rm-status">8/25 公開</span>
+          </li>
+          <li class="roadmap-item is-done">
+            <span class="rm-day">第5回</span>
+            <div class="rm-copy"><strong>AIは何が得意で、何が苦手なの？</strong><small>公式レッスン：生成 AI の能力と限界</small></div>
+            <span class="rm-status">8/26 公開</span>
+          </li>
+          <li class="roadmap-item is-done">
+            <span class="rm-day">第6回</span>
+            <div class="rm-copy"><strong>AIに何を任せる？（委任力）</strong><small>公式レッスン：委任力 (Delegation) を詳しく見る</small></div>
+            <span class="rm-status">8/27 公開</span>
+          </li>
+          <li class="roadmap-item is-done">
+            <span class="rm-day">第7回</span>
+            <div class="rm-copy"><strong>どんな旅にしたい？（委任力・実践編）</strong><small>公式レッスン：プロジェクト計画と委任力</small></div>
+            <span class="rm-status">8/28 公開</span>
+          </li>
+          <li class="roadmap-item is-next">
+            <span class="rm-day">第8回</span>
+            <div class="rm-copy"><strong>記述力（Description）── 思ってたのと違う、を減らす伝え方</strong><small>公式レッスン：記述力 (Description) を詳しく見る</small></div>
+            <span class="rm-status">準備中</span>
+          </li>
+          <li class="roadmap-item is-todo">
+            <span class="rm-day">第9回</span>
+            <div class="rm-copy"><strong>効果的なプロンプト技法</strong><small>公式レッスン：効果的なプロンプト技法</small></div>
+            <span class="rm-status">予定</span>
+          </li>
+          <li class="roadmap-item is-todo">
+            <span class="rm-day">第10回</span>
+            <div class="rm-copy"><strong>評価力（Discernment）── AIの答えをどう見極める？</strong><small>公式レッスン：評価力 (Discernment) を詳しく見る</small></div>
+            <span class="rm-status">予定</span>
+          </li>
+          <li class="roadmap-item is-todo">
+            <span class="rm-day">第11回</span>
+            <div class="rm-copy"><strong>記述・評価のループ ── 伝えて、見極めて、また伝える</strong><small>公式レッスン：記述・評価のループ</small></div>
+            <span class="rm-status">予定</span>
+          </li>
+          <li class="roadmap-item is-todo">
+            <span class="rm-day">第12回</span>
+            <div class="rm-copy"><strong>倫理的責任（Diligence）── AIと働く責任の持ち方</strong><small>公式レッスン：倫理的責任 (Diligence) を詳しく見る</small></div>
+            <span class="rm-status">予定</span>
+          </li>
+          <li class="roadmap-item is-todo">
+            <span class="rm-day">第13回</span>
+            <div class="rm-copy"><strong>まとめと修了バッジ（最終回）</strong><small>公式レッスン：まとめ＋コースクイズ＋修了バッジ</small></div>
+            <span class="rm-status">予定</span>
+          </li>
+        </ol>
+        <p class="roadmap-note">ここまでは毎日1本ペース。このままなら9月上旬に完走の見込みです。公式カリキュラムの確認日は2026年8月28日。公式側の更新にあわせて、回数や順番が変わることがあります。</p>
       </div>
     </section>
 
