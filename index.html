@@ -53,9 +53,10 @@
       padding: 8px 14px;
       color: var(--white);
       background: var(--forest-dark);
-      transform: translateY(-150%);
+      opacity: 0;
+      pointer-events: none;
     }
-    .skip-link:focus { transform: translateY(0); }
+    .skip-link:focus { opacity: 1; pointer-events: auto; }
 
     .site-header {
       position: sticky;
@@ -352,7 +353,7 @@
 
     .next-preview { margin-top: 70px; padding: 36px 0; border-top: 1px solid var(--forest); border-bottom: 1px solid var(--forest); display: grid; grid-template-columns: 180px 1fr auto; gap: 30px; align-items: center; }
     .next-label { color: var(--orange-ink); font-family: "Noto Serif JP", serif; font-size: 13px; font-weight: 700; letter-spacing: .12em; }
-    .next-copy h3 { margin: 0; font-family: "Noto Serif JP", serif; font-size: 23px; }
+    .next-copy h3 { margin: 0; font-family: "Noto Serif JP", serif; font-size: 23px; text-wrap: balance; }
     .next-copy p { margin: 7px 0 0; color: var(--muted); font-size: 13px; }
     .next-status { padding: 6px 12px; border: 1px solid var(--line); color: var(--muted); font-size: 12.5px; font-weight: 700; letter-spacing: .08em; }
 
@@ -464,7 +465,7 @@
           </div>
           <div class="progress-panel" aria-live="polite">
             <span class="progress-label">この端末で読んだ回</span>
-            <span class="progress-number"><strong id="read-count">0</strong> / <span id="total-count">10</span></span>
+            <span class="progress-number"><strong id="read-count">0</strong> / <span id="total-count">12</span></span>
             <span class="progress-bar" aria-hidden="true"><span id="progress-fill"></span></span>
           </div>
         </div>
@@ -519,12 +520,14 @@
             <li><a href="https://libecity.com/room_list?room_id=m74BCueTGd0wL6uxHCCZ&amp;comment_id=rB2Or00cPE145ES5tItH">第8回：記述力ってなに？（Product・Process・Performance）</a></li>
             <li><a href="https://libecity.com/room_list?room_id=m74BCueTGd0wL6uxHCCZ&amp;comment_id=Y1OcjegHk7EsSRx3GZAD">第9回：効果的なプロンプト技法（6個の道具箱）</a></li>
             <li><a href="https://libecity.com/room_list?room_id=m74BCueTGd0wL6uxHCCZ&amp;comment_id=TeSqx86tn1Q1xfstZcam">第10回：AIの答えをどう見る？（評価力）</a></li>
+            <li><a href="https://libecity.com/room_list?room_id=m74BCueTGd0wL6uxHCCZ&amp;comment_id=i4jgFiUQ074pDYkX19Sm">第11回：AIの答えをどう育てる？（記述・評価のループ）</a></li>
+            <li><a href="https://libecity.com/room_list?room_id=m74BCueTGd0wL6uxHCCZ&amp;comment_id=zhzGnOyeByTGVJ4PPMiC">第12回：AIとどう責任を持つ？（倫理的責任・Diligence）</a></li>
           </ul>
         </noscript>
 
         <aside class="next-preview" aria-label="次回予告">
           <span class="next-label">COMING NEXT</span>
-          <div class="next-copy"><h3>第11回：記述・評価のループ</h3><p>伝えた。答えが返ってきた。評価した。「で、ちょっと違ったらどうするの？」——伝える→見る→また伝えるの改善ループを考えます。</p></div>
+          <div class="next-copy"><h3>第13回：まとめと修了バッジ（最終回）</h3><p>委任力・記述力・評価力・倫理的責任。4つのDをつないで、「結局、AIとどう付き合えばいいの？」に答えます。コースクイズと修了バッジで一緒に卒業。</p></div>
           <span class="next-status">準備中</span>
         </aside>
       </div>
@@ -590,23 +593,23 @@
             <div class="rm-copy"><strong>評価力（Discernment）── AIの答えをどう見極める？</strong><small>公式レッスン：評価力 (Discernment) を詳しく見る</small></div>
             <span class="rm-status">8/31 公開</span>
           </li>
-          <li class="roadmap-item is-next">
+          <li class="roadmap-item is-done">
             <span class="rm-day">第11回</span>
             <div class="rm-copy"><strong>記述・評価のループ ── 伝えて、見極めて、また伝える</strong><small>公式レッスン：記述・評価のループ</small></div>
-            <span class="rm-status">準備中</span>
+            <span class="rm-status">9/1 公開</span>
           </li>
-          <li class="roadmap-item is-todo">
+          <li class="roadmap-item is-done">
             <span class="rm-day">第12回</span>
             <div class="rm-copy"><strong>倫理的責任（Diligence）── AIと働く責任の持ち方</strong><small>公式レッスン：倫理的責任 (Diligence) を詳しく見る</small></div>
-            <span class="rm-status">予定</span>
+            <span class="rm-status">9/3 公開</span>
           </li>
-          <li class="roadmap-item is-todo">
+          <li class="roadmap-item is-next">
             <span class="rm-day">第13回</span>
             <div class="rm-copy"><strong>まとめと修了バッジ（最終回）</strong><small>公式レッスン：まとめ＋コースクイズ＋修了バッジ</small></div>
-            <span class="rm-status">予定</span>
+            <span class="rm-status">準備中</span>
           </li>
         </ol>
-        <p class="roadmap-note">ここまでは毎日1本ペース。このままなら9月上旬に完走の見込みです。公式カリキュラムの確認日は2026年8月28日。公式側の更新にあわせて、回数や順番が変わることがあります。</p>
+        <p class="roadmap-note">ここまで13日で12本。次の第13回が最終回です。このままなら9月上旬に完走の見込みです。公式カリキュラムの確認日は2026年8月28日。公式側の更新にあわせて、回数や順番が変わることがあります。</p>
       </div>
     </section>
 
@@ -737,6 +740,28 @@
         url: "https://libecity.com/room_list?room_id=m74BCueTGd0wL6uxHCCZ&comment_id=TeSqx86tn1Q1xfstZcam",
         image: "assets/lesson-10.jpg",
         imageAlt: "カピバラとインコが、AIの答えを評価力の3つの視点でチェックしているイラスト"
+      },
+      {
+        id: "lesson-11",
+        day: "第11回",
+        date: "2026.09.01",
+        title: "AIの答えをどう育てる？（記述・評価のループ）",
+        summary: "答えが思っていたのと違っても、ボツにしてやり直しじゃない。良かった点・違った点・次の希望を伝えて、3往復で答えを育てていく型をほどきます。",
+        point: "最強のプロンプトを一発で書くより、会話しながら近づける。良かったところも伝えるのがコツ。",
+        url: "https://libecity.com/room_list?room_id=m74BCueTGd0wL6uxHCCZ&comment_id=i4jgFiUQ074pDYkX19Sm",
+        image: "assets/lesson-11.jpg",
+        imageAlt: "カピバラとインコが、伝える→見る→また伝えるの矢印で回る記述・評価のループを見ているイラスト"
+      },
+      {
+        id: "lesson-12",
+        day: "第12回",
+        date: "2026.09.03",
+        title: "AIとどう責任を持つ？（倫理的責任・Diligence）",
+        summary: "作る時・AI利用を伝える時・世に出す時の3つの責任。「怖いから禁止」でも「丸投げ」でもなく、仕組みを理解して自分で選ぶ力をほどきます。",
+        point: "Diligenceは制限する力ではない。安心して、思い切ってAIを活用するための力。",
+        url: "https://libecity.com/room_list?room_id=m74BCueTGd0wL6uxHCCZ&comment_id=zhzGnOyeByTGVJ4PPMiC",
+        image: "assets/lesson-12.jpg",
+        imageAlt: "カピバラとインコが、作る時・伝える時・世に出す時の3つの責任を見ているイラスト"
       }
     ];
 
