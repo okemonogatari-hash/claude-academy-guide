@@ -331,6 +331,7 @@
     .day-label { color: var(--orange-ink); font-family: "Noto Serif JP", serif; font-size: 13px; font-weight: 700; letter-spacing: .08em; }
     .lesson-date { color: var(--muted); font-size: 12.5px; }
     .lesson-title { margin: 0; font-family: "Noto Serif JP", serif; font-size: clamp(21px, 2.5vw, 28px); line-height: 1.55; text-wrap: balance; }
+    .lesson-title .title-sub { display: inline-block; max-width: 100%; }
     .lesson-summary { margin: 14px 0 0; color: var(--muted); font-size: 13px; line-height: 1.85; }
     .lesson-point { margin: 18px 0 0; padding-left: 13px; border-left: 3px solid var(--leaf); font-size: 13px; font-weight: 600; }
     .lesson-actions { margin-top: auto; padding-top: 24px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
@@ -788,6 +789,14 @@
       return String(value).replace(/[&<>"]/g, char => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[char]));
     }
 
+    function titleMarkup(title) {
+      const idx = title.indexOf("（");
+      if (idx === -1) return escapeHtml(title);
+      const head = title.slice(0, idx);
+      const tail = title.slice(idx);
+      return `${escapeHtml(head)}<span class="title-sub">${escapeHtml(tail)}</span>`;
+    }
+
     function mediaMarkup(lesson) {
       if (lesson.image) {
         return `<img src="${escapeHtml(lesson.image)}" alt="${escapeHtml(lesson.imageAlt)}" width="1280" height="720" loading="lazy">`;
@@ -808,7 +817,7 @@
             </div>
             <div class="lesson-body">
               <div class="lesson-meta"><span class="day-label">${escapeHtml(lesson.day)}</span><time class="lesson-date">${escapeHtml(lesson.date)}</time></div>
-              <h3 class="lesson-title">${escapeHtml(lesson.title)}</h3>
+              <h3 class="lesson-title">${titleMarkup(lesson.title)}</h3>
               <p class="lesson-summary">${escapeHtml(lesson.summary)}</p>
               <p class="lesson-point">${escapeHtml(lesson.point)}</p>
               <div class="lesson-actions">
